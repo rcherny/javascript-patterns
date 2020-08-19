@@ -7,7 +7,7 @@
 	<body>
 		<script>
 			/* Title: Init-time branching
-			 Description: branch code once during initlization initialization
+			 Description: branch code once during initialization
 			 */
 
 			// BEFORE
@@ -35,6 +35,9 @@
 			if (typeof window.addEventListener === 'function') {
 				utils.addListener = function (el, type, fn) {
 					el.addEventListener(type, fn, false);
+				};
+				utils.removeListener = function(el, type, fn) { 
+					el.removeEventListener(type, fn, false); 
 				};
 			} else if (typeof document.attachEvent !== 'undefined') { // IE
 				utils.addListener = function (el, type, fn) {
